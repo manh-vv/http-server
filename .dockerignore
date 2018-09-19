@@ -1,0 +1,16 @@
+.dockerignore
+.gitignore
+.idea
+Dockerfile
+README.md
+brun.sh
+build.ts
+cstop.sh
+docker-compose.yml
+node_modules
+nodemon.json
+public
+server
+test
+tsconfig.json
+tslint.json
