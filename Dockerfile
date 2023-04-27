@@ -1,22 +1,26 @@
-FROM node:8.10-alpine
+FROM node:20.0.0-alpine
 
 # Create app directory
-WORKDIR /usr/src/app
+WORKDIR /app
 
 # Install app dependencies
-# A wildcard is used to ensure both package.json AND package-lock.json are copied
-# where available (npm@5+)
-COPY package*.json ./
-
-# If you are building your code for production
-RUN npm install --only=production
+COPY package.json ./
+RUN yarn
 
 # Bundle app source
-COPY . .
+COPY src src
+COPY cert cert
 
 RUN ls -l
 
-EXPOSE 8080
-EXPOSE 8081
+ENV APP_ID=http-server
+ENV NODE_ENV=development
+ENV PORT=80
+ENV HTTPS_PORT=443
+ENV LOG_LEVEL=debug
+ENV SESSION_SECRET=mySecret
+
+EXPOSE 80
+EXPOSE 443
 
 CMD [ "yarn", "docker:start" ]
