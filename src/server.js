@@ -4,6 +4,7 @@ const http = require("http");
 const https = require("https");
 const os = require("os");
 const cookieParser = require("cookie-parser");
+const pinoHttp = require("pino-http");
 const log = require("./logger");
 
 const app = express();
@@ -13,6 +14,7 @@ class ExpressServer {
     app.use(express.json());
     app.use(express.urlencoded({ extended: true }));
     app.use(cookieParser(process.env.SESSION_SECRET));
+    app.use(pinoHttp({ logger: log }));
 
     routeFn(app);
   }
