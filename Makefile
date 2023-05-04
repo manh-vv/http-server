@@ -2,6 +2,9 @@
 docker-build:
 	docker build -t aaronmiya3/http-server .
 
+docker-push:
+	docker push aaronmiya3/http-server
+
 docker-run:
 	docker run --name http-server --rm -p 8080:80 -p 8443:443 aaronmiya3/http-server &
 
