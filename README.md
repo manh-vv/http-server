@@ -32,4 +32,7 @@ make docker-stop
 ```sh
 curl http://localhost:8080?msg=hello-http
 curl -k https://localhost:8443?msg=hello-https
+
+curl -X POST 'http://localhost:5088/send' -H 'Content-Type: application/json' -d '{"msg2": "HELLO msg2"}'
+curl -k 'https://localhost:5443/send' -H 'Content-Type: application/json' -d '{"msg2": "HELLO msg2"}'
 ```

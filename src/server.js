@@ -14,7 +14,17 @@ class ExpressServer {
     app.use(express.json());
     app.use(express.urlencoded({ extended: true }));
     app.use(cookieParser(process.env.SESSION_SECRET));
-    app.use(pinoHttp({ logger: log }));
+    app.use(
+      pinoHttp({
+        logger: log,
+        serializers: {
+          req(request) {
+            request.body = request.raw.body;
+            return request;
+          },
+        },
+      })
+    );
 
     routeFn(app);
   }
