@@ -10,9 +10,9 @@
     "dev": "node --watch src/index.js | pino-pretty"
   },
   "dependencies": {
-    "cookie-parser": "1.4.6",
+    "cookie-parser": "1.4.7",
     "dotenv": "16.0.3",
-    "express": "4.18.2",
+    "express": "4.21.1",
     "pino": "8.11.0",
     "pino-http": "8.3.3"
   },
